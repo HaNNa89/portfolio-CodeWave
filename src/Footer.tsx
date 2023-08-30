@@ -3,13 +3,14 @@ import { Box, Typography } from "@mui/material";
 function Footer() {
   return (
     <Box sx={footer}>
-      <Box sx={titlebox}></Box>
+      <Box sx={titlebox}>
+        <Typography variant="h4" sx={bigtitle}>
+          FIND US
+        </Typography>
+      </Box>
 
       <Box sx={footerbox}>
         <Box sx={box1}>
-          <Typography variant="h4" sx={bigtitle}>
-            FIND US
-          </Typography>
           <Typography sx={title}> ADDRESS</Typography>
           <Typography sx={text}>
             Anders Perssonsgatan 18 <br /> 416 64 Gothenburg
@@ -32,20 +33,29 @@ const footer = {
   margin: 0,
   backgroundColor: "#1F342E",
   height: "33rem",
-  marginBottom: 0,
+  bottom: 0,
+
+  "@media (max-width: 1024px)": {
+    height: "auto",
+  },
 };
 
 const footerbox = {
   display: "flex",
   justifyContent: "space-around",
+  alignItems: "center",
+  "@media (max-width: 1024px)": {
+    flexDirection: "column-reverse",
+    height: "auto",
+  },
 };
 
 const titlebox = {
-  width: "100%",
-  height: "3rem",
+  width: "80%",
   display: "flex",
+  paddingLeft: "3rem",
+  paddingTop: "1rem",
   justifyContent: "flexStart",
-  marginLeft: "3rem",
 };
 
 const bigtitle = {
@@ -67,12 +77,23 @@ const text = {
 };
 const box1 = {
   width: "40%",
+  "@media (max-width: 1024px)": {
+    width: "80%",
+  },
 };
 
 const box2 = {
-  width: "40%",
+  width: "45%",
   backgroundImage: "url('public/images/karta.png')",
   height: "20rem",
+  "@media (max-width: 1024px)": {
+    width: "80%",
+    height: "30rem",
+    marginBottom: "1rem",
+  },
+  "@media (max-width: 600px)": {
+    height: "20rem",
+  },
 };
 
 export default Footer;
