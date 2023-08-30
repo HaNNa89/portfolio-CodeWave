@@ -1,9 +1,16 @@
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 function Footer() {
   return (
     <Box sx={footer}>
-      <Box sx={box1}>TEXT</Box>
+      <Box sx={box1}>
+        <Typography sx={title}> ADDRESS</Typography>
+        <Typography>Anders Perssonsgatan 18 416 64 Gothenburg</Typography>
+        <Typography sx={title}> CONTACT</Typography>
+        <Typography>
+          Tel: 000-00 00 000 Email: info@codewave.com Linkedin: @Codewave
+        </Typography>
+      </Box>
       <Box sx={box2}> BILD</Box>
     </Box>
   );
@@ -19,7 +26,11 @@ const footer = {
   justifyContent: "space-around",
   alignItems: "center",
 };
-
+const title = {
+  color: "white",
+  fontWeight: "bold",
+  fontFamily: "Montserrat",
+};
 const box1 = {
   width: "40%",
   backgroundColor: "blue",
