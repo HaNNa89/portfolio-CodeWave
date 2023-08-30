@@ -32,9 +32,9 @@ const footer = {
   width: "100%",
   margin: 0,
   backgroundColor: "#1F342E",
-  height: "33rem",
+  height: "auto",
   bottom: 0,
-
+  position: "fixed",
   "@media (max-width: 1024px)": {
     height: "auto",
   },
@@ -46,7 +46,6 @@ const footerbox = {
   alignItems: "center",
   "@media (max-width: 1024px)": {
     flexDirection: "column-reverse",
-    height: "auto",
   },
 };
 
@@ -86,10 +85,10 @@ const box2 = {
   width: "45%",
   backgroundImage: "url('public/images/karta.png')",
   height: "20rem",
+  marginBottom: "1rem",
   "@media (max-width: 1024px)": {
     width: "80%",
     height: "30rem",
-    marginBottom: "1rem",
   },
   "@media (max-width: 600px)": {
     height: "20rem",
