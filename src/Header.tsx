@@ -4,13 +4,19 @@ import CodeWave from './assets/CodeWave.png';
 
 function Header() {
     const menuItem = {
-        display: { xs: 'none', sm: 'block' }, color: 'black', fontSize: '1rem', fontFamily: 'lexend giga'
+        display: { xs: 'none', sm: 'block' },
+        color: 'black',
+        fontSize: '1rem',
+        fontFamily: 'lexend giga'
     }
 
     const menuList = {
-        display: 'flex', alignItems: 'center', gap: '1.5rem', padding: '0 4rem'
+        display: 'flex',
+        alignItems: 'center',
+        gap: '1.5rem', 
+        padding: '0 4rem'
     }
-    
+
     return (
         <AppBar position="fixed" style={{ background: 'transparent', boxShadow: 'none' }}>
             <Toolbar style={{ justifyContent: 'space-between' }}>
