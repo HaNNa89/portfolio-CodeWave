@@ -44,8 +44,10 @@ const footerbox = {
   display: "flex",
   justifyContent: "space-around",
   alignItems: "center",
+  height: "25rem",
   "@media (max-width: 1024px)": {
     flexDirection: "column-reverse",
+    height: "40rem",
   },
 };
 
@@ -60,7 +62,9 @@ const titlebox = {
 const bigtitle = {
   fontFamily: "Lexend giga",
   color: "white",
-  marginBottom: "2rem",
+  "@media (max-width: 1024px)": {
+    marginBottom: "1.5rem",
+  },
 };
 const title = {
   color: "white",
