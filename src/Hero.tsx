@@ -1,6 +1,25 @@
-import { createTheme, ThemeProvider, Typography } from "@mui/material";
+import {
+  Container,
+  createTheme,
+  ThemeProvider,
+  Typography,
+} from "@mui/material";
 
 const theme = createTheme();
+
+export default function Hero() {
+  return (
+    <ThemeProvider theme={theme}>
+      <img style={heroImage} src="/images/hero.png" alt="hero" />
+      <Container style={heroTextContainer}>
+        <Typography style={heroText} variant="h3">
+          Your VISION, our EXPERTISE <br /> Turn your ideas into reality with
+          our consultants
+        </Typography>
+      </Container>
+    </ThemeProvider>
+  );
+}
 
 theme.typography.h3 = {
   fontSize: "1rem", // for mobile
@@ -28,17 +47,3 @@ const heroText = {
   color: "#1B1B1B",
   fontFamily: "Lexend giga",
 };
-
-export default function Hero() {
-  return (
-    <ThemeProvider theme={theme}>
-      <img style={heroImage} src="/images/hero.png" alt="hero" />
-      <div style={heroTextContainer}>
-        <Typography style={heroText} variant="h3">
-          Your VISION, our EXPERTISE - Turn your ideas into reality with our
-          consultants
-        </Typography>
-      </div>
-    </ThemeProvider>
-  );
-}
