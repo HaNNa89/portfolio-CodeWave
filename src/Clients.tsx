@@ -1,4 +1,4 @@
-import { Box, Grid } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 
 function Clients() {
   return (
@@ -42,6 +42,18 @@ function Clients() {
           />
         </Grid>
       </Grid>
+      <Box
+        sx={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+          color: "black",
+        }}
+      >
+        <Typography sx={{ fontFamily: "montserrat" }}>
+          Trusted by these leading brands
+        </Typography>
+      </Box>
     </Box>
   );
 }
