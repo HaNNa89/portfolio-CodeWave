@@ -17,10 +17,6 @@ function Header() {
     padding: "0 4rem",
   };
 
-  const heroContainer = {
-    marginTop: "4rem",
-  };
-
   return (
     <>
       <AppBar
