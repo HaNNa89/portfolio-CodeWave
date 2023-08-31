@@ -3,7 +3,7 @@ import { Box, Grid, Typography } from "@mui/material";
 function ProfileCard() {
 	return (
 		<>
-			<Typography ml={8} variant="h4">
+			<Typography ml={8} mt={10} variant="h4">
 				OUR TEAM
 			</Typography>
 			<Box sx={profilecontainer}>
@@ -22,7 +22,9 @@ function ProfileCard() {
 							<Typography mt={1} sx={cardtitle}>
 								Felicia Willnäs
 							</Typography>
-							<Typography sx={cardtext}>Frontend developer</Typography>
+							<Typography sx={cardtext}>
+								Web Development Enthusiast with a Focus on Responsive Design
+							</Typography>
 						</Box>
 					</Grid>
 					<Grid item xs={12} sm={6} md={3}>
@@ -39,7 +41,9 @@ function ProfileCard() {
 							<Typography mt={1} sx={cardtitle}>
 								Hanna Petersson
 							</Typography>
-							<Typography sx={cardtext}>Frontend developer</Typography>
+							<Typography sx={cardtext}>
+								Front-End Guru Specializing in React.js
+							</Typography>
 						</Box>
 					</Grid>
 					<Grid item xs={12} sm={6} md={3}>
@@ -56,7 +60,9 @@ function ProfileCard() {
 							<Typography mt={1} sx={cardtitle}>
 								Mergim Shala
 							</Typography>
-							<Typography sx={cardtext}>Frontend developer</Typography>
+							<Typography sx={cardtext}>
+								UX-Focused Front-End Designer
+							</Typography>
 						</Box>
 					</Grid>
 					<Grid item xs={12} sm={6} md={3}>
@@ -73,7 +79,9 @@ function ProfileCard() {
 							<Typography mt={1} sx={cardtitle}>
 								Madeleine Gustafsson
 							</Typography>
-							<Typography sx={cardtext}>Frontend developer</Typography>
+							<Typography sx={cardtext}>
+								Front-End Developer with E-commerce Experience
+							</Typography>
 						</Box>
 					</Grid>
 				</Grid>
@@ -96,13 +104,14 @@ const cardprofile = {
 };
 
 const cardtitle = {
-	fontFamily: "Lexend giga",
-	fontSize: 12,
+	fontFamily: "monsterrat",
+	fontSize: 18,
 };
 
 const cardtext = {
-	fontFamily: "Lexend giga",
-	fontSize: 10,
+	fontFamily: "monsterrat",
+	fontSize: 14,
+	textAlign: "center",
 };
 
 export default ProfileCard;
