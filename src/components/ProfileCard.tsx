@@ -1,58 +1,75 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 
 function ProfileCard() {
 	return (
 		<>
+			<Typography variant="h5">Our team</Typography>
 			<Box sx={profilecontainer}>
-				<Box sx={cardcontainer}>
-					<Box sx={cardprofile}>
-						<img
-							src="public/pictures/girl.jpg"
-							alt="girl"
-							width="150"
-							height="180"
-							style={{ borderRadius: "20px" }}
-						/>
+				<Grid container spacing={2}>
+					<Grid item xs={12} sm={6} md={3}>
+						<Box mb={10} mt={10} sx={cardprofile}>
+							<img
+								src="public/pictures/girl.jpg"
+								alt="girl"
+								style={{
+									borderRadius: "20px",
+									maxWidth: "12rem",
+									height: "auto",
+								}}
+							/>
 
-						<Typography sx={cardtitle}>Felicia Willnäs</Typography>
-						<Typography sx={cardtext}>Frontend developer</Typography>
-					</Box>
-					<Box sx={cardprofile}>
-						<img
-							src="public/pictures/girl.jpg"
-							alt="girl"
-							width="150"
-							height="180"
-							style={{ borderRadius: "20px" }}
-						/>
+							<Typography sx={cardtitle}>Felicia Willnäs</Typography>
+							<Typography sx={cardtext}>Frontend developer</Typography>
+						</Box>
+					</Grid>
+					<Grid item xs={12} sm={6} md={3}>
+						<Box mb={10} mt={10} sx={cardprofile}>
+							<img
+								src="public/pictures/girl.jpg"
+								alt="girl"
+								style={{
+									borderRadius: "20px",
+									maxWidth: "12rem",
+									height: "auto",
+								}}
+							/>
 
-						<Typography sx={cardtitle}>Hanna Petersson</Typography>
-						<Typography sx={cardtext}>Frontend developer</Typography>
-					</Box>
-					<Box sx={cardprofile}>
-						<img
-							src="public/pictures/girl.jpg"
-							alt="girl"
-							width="150"
-							height="180"
-							style={{ borderRadius: "20px" }}
-						/>
+							<Typography sx={cardtitle}>Hanna Petersson</Typography>
+							<Typography sx={cardtext}>Frontend developer</Typography>
+						</Box>
+					</Grid>
+					<Grid item xs={12} sm={6} md={3}>
+						<Box mb={10} mt={10} sx={cardprofile}>
+							<img
+								src="public/pictures/girl.jpg"
+								alt="girl"
+								style={{
+									borderRadius: "20px",
+									maxWidth: "12rem",
+									height: "auto",
+								}}
+							/>
 
-						<Typography sx={cardtitle}>Mergim Shala</Typography>
-						<Typography sx={cardtext}>Frontend developer</Typography>
-					</Box>
-					<Box sx={cardprofile}>
-						<img
-							src="public/pictures/girl.jpg"
-							alt="girl"
-							width="150"
-							height="180"
-							style={{ borderRadius: "20px" }}
-						/>
-						<Typography sx={cardtitle}>Madeleine Gustafsson</Typography>
-						<Typography sx={cardtext}>Frontend developer</Typography>
-					</Box>
-				</Box>
+							<Typography sx={cardtitle}>Mergim Shala</Typography>
+							<Typography sx={cardtext}>Frontend developer</Typography>
+						</Box>
+					</Grid>
+					<Grid item xs={12} sm={6} md={3}>
+						<Box mb={10} mt={10} sx={cardprofile}>
+							<img
+								src="public/pictures/girl.jpg"
+								alt="girl"
+								style={{
+									borderRadius: "20px",
+									maxWidth: "12rem",
+									height: "auto",
+								}}
+							/>
+							<Typography sx={cardtitle}>Madeleine Gustafsson</Typography>
+							<Typography sx={cardtext}>Frontend developer</Typography>
+						</Box>
+					</Grid>
+				</Grid>
 			</Box>
 		</>
 	);
@@ -62,11 +79,6 @@ const profilecontainer = {
 	display: "flex",
 	flexDirection: "row",
 	justifyContent: "center",
-};
-
-const cardcontainer = {
-	display: "flex",
-	flexDirection: "row",
 };
 
 const cardprofile = {
