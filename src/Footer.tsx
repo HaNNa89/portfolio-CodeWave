@@ -34,7 +34,7 @@ const footer = {
   backgroundColor: "#1F342E",
   height: "auto",
   bottom: 0,
-  position: "fixed",
+  position: "relative",
   "@media (max-width: 1024px)": {
     height: "auto",
   },
