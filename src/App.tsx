@@ -1,5 +1,6 @@
 import { Box } from "@mui/system";
 import "./App.css";
+import Clients from "./Clients";
 import Footer from "./Footer";
 import Header from "./Header";
 import Hero from "./Hero";
@@ -11,6 +12,7 @@ function App() {
         <Header />
         <Hero />
       </Box>
+      <Clients />
       <Footer />
     </>
   );
