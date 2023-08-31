@@ -3,9 +3,11 @@ import { Box, Grid, Typography } from "@mui/material";
 function ProfileCard() {
 	return (
 		<>
-			<Typography variant="h5">Our team</Typography>
+			<Typography ml={8} variant="h4">
+				OUR TEAM
+			</Typography>
 			<Box sx={profilecontainer}>
-				<Grid container spacing={2}>
+				<Grid container spacing={1}>
 					<Grid item xs={12} sm={6} md={3}>
 						<Box mb={10} mt={10} sx={cardprofile}>
 							<img
@@ -17,8 +19,9 @@ function ProfileCard() {
 									height: "auto",
 								}}
 							/>
-
-							<Typography sx={cardtitle}>Felicia Willnäs</Typography>
+							<Typography mt={1} sx={cardtitle}>
+								Felicia Willnäs
+							</Typography>
 							<Typography sx={cardtext}>Frontend developer</Typography>
 						</Box>
 					</Grid>
@@ -33,8 +36,9 @@ function ProfileCard() {
 									height: "auto",
 								}}
 							/>
-
-							<Typography sx={cardtitle}>Hanna Petersson</Typography>
+							<Typography mt={1} sx={cardtitle}>
+								Hanna Petersson
+							</Typography>
 							<Typography sx={cardtext}>Frontend developer</Typography>
 						</Box>
 					</Grid>
@@ -49,8 +53,9 @@ function ProfileCard() {
 									height: "auto",
 								}}
 							/>
-
-							<Typography sx={cardtitle}>Mergim Shala</Typography>
+							<Typography mt={1} sx={cardtitle}>
+								Mergim Shala
+							</Typography>
 							<Typography sx={cardtext}>Frontend developer</Typography>
 						</Box>
 					</Grid>
@@ -65,7 +70,9 @@ function ProfileCard() {
 									height: "auto",
 								}}
 							/>
-							<Typography sx={cardtitle}>Madeleine Gustafsson</Typography>
+							<Typography mt={1} sx={cardtitle}>
+								Madeleine Gustafsson
+							</Typography>
 							<Typography sx={cardtext}>Frontend developer</Typography>
 						</Box>
 					</Grid>
