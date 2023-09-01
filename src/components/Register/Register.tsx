@@ -1,12 +1,11 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
 import CodeWave from "../../assets/codewave.png";
-import "../Login/Login.css"
+import "../Login/Login.css";
 
 function Register() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState(""); // Add a state for confirmation password
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const handleUsernameChange = (event: any) => {
     setUsername(event.target.value);
@@ -17,7 +16,7 @@ function Register() {
   };
 
   const handleConfirmPasswordChange = (event: any) => {
-    setConfirmPassword(event.target.value); // Update the confirmation password state
+    setConfirmPassword(event.target.value);
   };
 
   return (
