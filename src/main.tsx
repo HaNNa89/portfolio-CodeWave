@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import App from "./App";
 import Homepage from "./Homepage";
-import Register from "./Register";
+import Register from "./components/Register/Register";
 import Login from "./components/Login/Login";
 import "./index.css";
 
