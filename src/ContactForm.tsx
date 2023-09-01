@@ -1,23 +1,44 @@
-import { Box, Button, TextField } from "@mui/material";
+import { Box, Button, InputLabel, TextField } from "@mui/material";
 
 export default function ContactForm() {
   return (
     <>
       <Box style={fromContainer}>
         <h5 style={ContactTitle}>Contact me</h5>
-        <TextField id="outlined-basic" label="Name" variant="outlined" />
+        {/* NAME INPUT */}
+        <InputLabel sx={inputLabel}>Name:</InputLabel>
         <TextField
+          InputProps={{
+            style: {
+              borderRadius: "5rem",
+            },
+          }}
           id="outlined-basic"
-          label="Email"
           variant="outlined"
-          required
         />
+        {/* EMAIL INPUT */}
+        <InputLabel sx={inputLabel}>Email*:</InputLabel>
         <TextField
+          InputProps={{
+            style: {
+              borderRadius: "5rem",
+            },
+          }}
           id="outlined-basic"
-          label="Your message"
           variant="outlined"
-          required
         />
+        {/* MESSAGE INPUT */}
+        <InputLabel sx={inputLabel}>Your message:*</InputLabel>
+        <TextField
+          InputProps={{
+            style: {
+              borderRadius: "5rem",
+            },
+          }}
+          id="outlined-basic"
+          variant="outlined"
+        />
+
         <Button
           sx={{
             backgroundColor: "#28594B",
@@ -25,6 +46,9 @@ export default function ContactForm() {
             width: "7rem",
             textTransform: "none",
             color: "#FBF9F3",
+            marginTop: "1rem",
+            boxShadow: "none",
+            fontFamily: "Lexend giga",
           }}
           variant="contained"
         >
@@ -36,7 +60,7 @@ export default function ContactForm() {
 }
 
 const fromContainer = {
-  width: "30rem",
+  width: "50%",
   display: "grid",
 };
 
@@ -47,4 +71,9 @@ const ContactTitle = {
   width: "auto",
   borderRadius: "5rem",
   padding: "1rem",
+};
+
+const inputLabel = {
+  fontFamily: "Montserrat",
+  marginLeft: "0.5rem",
 };
