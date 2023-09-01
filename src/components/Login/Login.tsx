@@ -1,11 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CodeWave from "../../assets/codewave.png";
 import "./Login.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleUsernameChange = (event: any) => {
     setUsername(event.target.value);
@@ -14,6 +15,19 @@ function Login() {
   const handlePasswordChange = (event: any) => {
     setPassword(event.target.value);
   };
+
+  const handleSignInClick = () => {
+      localStorage.setItem("username", username);
+      console.log(`User ${username} has signed in!.`);
+      navigate("/");
+  };
+
+  useEffect(() => {
+    const storedUsername = localStorage.getItem("username");
+    if (storedUsername) {
+      setUsername(storedUsername);
+    }
+  }, []);
 
   return (
     <div className="login-container">
@@ -42,7 +56,9 @@ function Login() {
           <NavLink to="/register">Skapa ett konto</NavLink>
         </div>
 
-        <button className="login-button">Sign in</button>
+        <button className="login-button" onClick={handleSignInClick}>
+          Sign in
+        </button>
       </div>
     </div>
   );
