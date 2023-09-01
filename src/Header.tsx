@@ -1,6 +1,8 @@
 import { AppBar, Box, MenuItem, Toolbar } from "@mui/material";
-import CodeWave from "./assets/CodeWave.png";
+import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 import HamburgerMenu from "./HamburgerMenu";
+import CodeWave from "./assets/codewave.png";
 
 function Header() {
   const menuItem = {
@@ -17,11 +19,43 @@ function Header() {
     padding: "0 4rem",
   };
 
+  const [headerBackground, setHeaderBackground] = useState("transparent");
+
+  const handleScroll = () => {
+    if (window.scrollY > 0) {
+      setHeaderBackground("rgba(131, 189, 192, 0.6");
+    } else {
+      setHeaderBackground("transparent");
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  // const scrollToSection = (sectionId: string) => {
+  //   const section = document.getElementById(sectionId);
+  //   if (section) {
+  //     window.scrollTo({
+  //       top: section.offsetTop,
+  //       behavior: "smooth",
+  //     });
+  //   }
+  // };
+
   return (
     <>
       <AppBar
         position="fixed"
-        style={{ background: "transparent", boxShadow: "none" }}
+        style={{
+          background: headerBackground,
+          boxShadow: "none",
+          backdropFilter:
+            headerBackground === "transparent" ? "none" : "blur(10px)",
+        }}
       >
         <Toolbar style={{ justifyContent: "space-between" }}>
           <img
@@ -31,9 +65,19 @@ function Header() {
           />
 
           <Box sx={menuList}>
-            <MenuItem sx={menuItem}>Our Team</MenuItem>
-            <MenuItem sx={menuItem}>Find Us</MenuItem>
-            <MenuItem sx={menuItem}>Login</MenuItem>
+            <MenuItem sx={menuItem} 
+            // onClick={() => scrollToSection("our-team")}
+            >
+              Our Team</MenuItem>
+            <MenuItem sx={menuItem} 
+            // onClick={() => scrollToSection("find-us")}
+            >
+              Find Us</MenuItem>
+            <MenuItem sx={menuItem}>
+            <NavLink to="/login" style={{ textDecoration: "none", color: "inherit" }}>
+                Login
+            </NavLink>
+            </MenuItem>
           </Box>
 
           <HamburgerMenu />
