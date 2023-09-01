@@ -3,19 +3,19 @@ import { Box, Grid, Typography } from "@mui/material";
 function ProfileCard() {
 	return (
 		<>
-			<Typography ml={8} mt={10} variant="h4">
+			<Typography sx={toptitle} ml={8} mt={10} mb={10} variant="h4">
 				OUR TEAM
 			</Typography>
-			<Box sx={profilecontainer}>
-				<Grid container spacing={1}>
+			<Box sx={profilecontainer} mb={6}>
+				<Grid sx={gridcontainer} container spacing={2}>
 					<Grid item xs={12} sm={6} md={3}>
-						<Box mb={10} mt={10} sx={cardprofile}>
+						<Box sx={cardprofile}>
 							<img
 								src="public/pictures/girl.jpg"
 								alt="girl"
 								style={{
 									borderRadius: "20px",
-									maxWidth: "12rem",
+									maxWidth: "16rem",
 									height: "auto",
 								}}
 							/>
@@ -28,13 +28,13 @@ function ProfileCard() {
 						</Box>
 					</Grid>
 					<Grid item xs={12} sm={6} md={3}>
-						<Box mb={10} mt={10} sx={cardprofile}>
+						<Box sx={cardprofile}>
 							<img
 								src="public/pictures/girl.jpg"
 								alt="girl"
 								style={{
 									borderRadius: "20px",
-									maxWidth: "12rem",
+									maxWidth: "16rem",
 									height: "auto",
 								}}
 							/>
@@ -47,13 +47,13 @@ function ProfileCard() {
 						</Box>
 					</Grid>
 					<Grid item xs={12} sm={6} md={3}>
-						<Box mb={10} mt={10} sx={cardprofile}>
+						<Box sx={cardprofile}>
 							<img
 								src="public/pictures/girl.jpg"
 								alt="girl"
 								style={{
 									borderRadius: "20px",
-									maxWidth: "12rem",
+									maxWidth: "16rem",
 									height: "auto",
 								}}
 							/>
@@ -66,13 +66,13 @@ function ProfileCard() {
 						</Box>
 					</Grid>
 					<Grid item xs={12} sm={6} md={3}>
-						<Box mb={10} mt={10} sx={cardprofile}>
+						<Box sx={cardprofile}>
 							<img
 								src="public/pictures/girl.jpg"
 								alt="girl"
 								style={{
 									borderRadius: "20px",
-									maxWidth: "12rem",
+									maxWidth: "16rem",
 									height: "auto",
 								}}
 							/>
@@ -80,7 +80,7 @@ function ProfileCard() {
 								Madeleine Gustafsson
 							</Typography>
 							<Typography sx={cardtext}>
-								Front-End Developer with E-commerce Experience
+								Front-End Developer with <br /> E-commerce Experience
 							</Typography>
 						</Box>
 					</Grid>
@@ -96,22 +96,41 @@ const profilecontainer = {
 	justifyContent: "center",
 };
 
+const gridcontainer = {};
+
 const cardprofile = {
 	display: "flex",
 	flexDirection: "column",
 	alignItems: "center",
-	padding: "10px",
+	padding: "12px",
+};
+
+const toptitle = {
+	"@media (max-width: 600px)": {
+		textAlign: "center",
+	},
 };
 
 const cardtitle = {
 	fontFamily: "monsterrat",
 	fontSize: 18,
+	alignSelf: "flex-start",
+	marginLeft: "1rem",
+
+	"@media (max-width: 600px)": {
+		alignSelf: "center",
+	},
 };
 
 const cardtext = {
 	fontFamily: "monsterrat",
 	fontSize: 14,
-	textAlign: "center",
+	alignSelf: "flex-start",
+	marginLeft: "1rem",
+
+	"@media (max-width: 600px)": {
+		alignSelf: "center",
+	},
 };
 
 export default ProfileCard;
