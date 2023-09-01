@@ -1,9 +1,9 @@
-export const consults = [
+export const team = [
   {
     name: "Felicia Willnäs",
     description:
       "Web Development Enthusiast with a Focus on Responsive Design! Felicia is a passionate web developer with a strong affinity for responsive design. Creating websites that look equally fantastic on desktops, tablets, and mobiles is my specialty",
-    imgurl: "",
+    imgurl: "/pictures/girl.jpg",
   },
   {
     name: "Hanna Petersson",
