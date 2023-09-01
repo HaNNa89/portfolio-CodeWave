@@ -7,12 +7,13 @@ import Header from "./Header";
 function App() {
   return (
     <>
-      <Header />       
-      <main> <Outlet /> </main>
+      <Header />
+      <main>
+        <Outlet />
+      </main>
       <Footer />
     </>
   );
 }
-
 
 export default App;

@@ -50,18 +50,22 @@ function HamburgerMenu() {
         open={Boolean(hamburgerMenu)}
         onClose={handleMenuClose}
       >
-          <MenuItem
-            sx={menuItems}
-            // onClick={() => scrollToSection("our-team")}
-          >
-            Our Team
-          </MenuItem>
-        <MenuItem sx={menuItems} 
-        // onClick={() => scrollToSection("find-us")}
+        <MenuItem
+          sx={menuItems}
+          // onClick={() => scrollToSection("our-team")}
+        >
+          Our Team
+        </MenuItem>
+        <MenuItem
+          sx={menuItems}
+          // onClick={() => scrollToSection("find-us")}
         >
           Find Us
         </MenuItem>
-        <NavLink style={{ textDecoration: "none", color: "inherit" }} to="/login">
+        <NavLink
+          style={{ textDecoration: "none", color: "inherit" }}
+          to="/login"
+        >
           <MenuItem sx={menuItems}>Login</MenuItem>
         </NavLink>
       </Menu>

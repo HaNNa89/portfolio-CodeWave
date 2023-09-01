@@ -65,18 +65,25 @@ function Header() {
           />
 
           <Box sx={menuList}>
-            <MenuItem sx={menuItem} 
-            // onClick={() => scrollToSection("our-team")}
+            <MenuItem
+              sx={menuItem}
+              // onClick={() => scrollToSection("our-team")}
             >
-              Our Team</MenuItem>
-            <MenuItem sx={menuItem} 
-            // onClick={() => scrollToSection("find-us")}
+              Our Team
+            </MenuItem>
+            <MenuItem
+              sx={menuItem}
+              // onClick={() => scrollToSection("find-us")}
             >
-              Find Us</MenuItem>
+              Find Us
+            </MenuItem>
             <MenuItem sx={menuItem}>
-            <NavLink to="/login" style={{ textDecoration: "none", color: "inherit" }}>
+              <NavLink
+                to="/login"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
                 Login
-            </NavLink>
+              </NavLink>
             </MenuItem>
           </Box>
 

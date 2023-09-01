@@ -3,7 +3,6 @@ import CodeWave from "../../assets/codewave.png";
 import "./Login.css";
 import { NavLink } from "react-router-dom";
 
-
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
