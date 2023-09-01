@@ -1,6 +1,7 @@
-import React from "react";
 import { Menu as MenuIcon } from "@mui/icons-material";
-import { IconButton, Menu, MenuItem, Box } from "@mui/material";
+import { IconButton, Menu, MenuItem } from "@mui/material";
+import React from "react";
+import { NavLink } from "react-router-dom";
 
 function HamburgerMenu() {
   const [hamburgerMenu, setHamburgerMenu] = React.useState(null);
@@ -14,13 +15,25 @@ function HamburgerMenu() {
   };
 
   const menuItems = {
-    fontFamily: 'Lexend Giga',
+    fontFamily: "Lexend Giga",
   };
 
   const menuIcon = {
-    fontSize: '2.5rem', color: 'black'
+    fontSize: "2.5rem",
+    color: "black",
   };
-  
+
+  // const scrollToSection = (sectionId: string) => {
+  //   const section = document.getElementById(sectionId);
+  //   if (section) {
+  //     window.scrollTo({
+  //       top: section.offsetTop,
+  //       behavior: "smooth",
+  //     });
+  //   }
+  //   handleMenuClose();
+  // };
+
   return (
     <>
       <IconButton
@@ -37,9 +50,20 @@ function HamburgerMenu() {
         open={Boolean(hamburgerMenu)}
         onClose={handleMenuClose}
       >
-        <MenuItem sx={menuItems}>Our Team</MenuItem>
-        <MenuItem sx={menuItems}>Find Us</MenuItem>
-        <MenuItem sx={menuItems}>Login</MenuItem>
+          <MenuItem
+            sx={menuItems}
+            // onClick={() => scrollToSection("our-team")}
+          >
+            Our Team
+          </MenuItem>
+        <MenuItem sx={menuItems} 
+        // onClick={() => scrollToSection("find-us")}
+        >
+          Find Us
+        </MenuItem>
+        <NavLink style={{ textDecoration: "none", color: "inherit" }} to="/login">
+          <MenuItem sx={menuItems}>Login</MenuItem>
+        </NavLink>
       </Menu>
     </>
   );
