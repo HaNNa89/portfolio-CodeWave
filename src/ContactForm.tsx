@@ -32,26 +32,16 @@ export default function ContactForm() {
         <TextField
           InputProps={{
             style: {
-              borderRadius: "5rem",
+              borderRadius: "2rem",
             },
           }}
+          multiline
+          rows={4}
           id="outlined-basic"
           variant="outlined"
         />
-
-        <Button
-          sx={{
-            backgroundColor: "#28594B",
-            borderRadius: "5rem",
-            width: "7rem",
-            textTransform: "none",
-            color: "#FBF9F3",
-            marginTop: "1rem",
-            boxShadow: "none",
-            fontFamily: "Lexend giga",
-          }}
-          variant="contained"
-        >
+        {/* SEND BUTTON */}
+        <Button sx={buttonStyle} disableRipple variant="text">
           Send
         </Button>
       </Box>
@@ -76,4 +66,19 @@ const ContactTitle = {
 const inputLabel = {
   fontFamily: "Montserrat",
   marginLeft: "0.5rem",
+  marginTop: "1rem",
+};
+
+const buttonStyle = {
+  backgroundColor: "#28594B",
+  borderRadius: "5rem",
+  width: "7rem",
+  textTransform: "none",
+  color: "#FBF9F3",
+  marginTop: "1rem",
+  boxShadow: "none",
+  fontFamily: "Lexend giga",
+  "&:hover": {
+    backgroundColor: "#1b1b1b ",
+  },
 };
