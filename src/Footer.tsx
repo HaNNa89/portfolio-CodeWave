@@ -23,7 +23,7 @@ function Footer() {
             <br /> Linkedin: @Codewave
           </Typography>
         </Box>
-        <Box sx={box2}>
+        <Box sx={mapBox}>
           <Map />
         </Box>
       </Box>
@@ -47,7 +47,7 @@ const footerbox = {
   display: "flex",
   justifyContent: "space-around",
   alignItems: "center",
-  height: "30rem",
+  height: "26rem",
   "@media (max-width: 1024px)": {
     flexDirection: "column-reverse",
     height: "40rem",
@@ -69,6 +69,7 @@ const bigtitle = {
     marginBottom: "1.5rem",
   },
 };
+
 const title = {
   color: "white",
   fontWeight: "bold",
@@ -81,6 +82,7 @@ const text = {
   fontSize: "11pt",
   paddingBottom: "1rem",
 };
+
 const box1 = {
   width: "40%",
   "@media (max-width: 1024px)": {
@@ -88,7 +90,7 @@ const box1 = {
   },
 };
 
-const box2 = {
+const mapBox = {
   width: "45%",
   height: "auto",
   marginBottom: "1rem",
