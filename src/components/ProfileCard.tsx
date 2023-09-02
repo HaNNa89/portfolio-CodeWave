@@ -20,7 +20,7 @@ function ProfileCard() {
                 to={`/team/${encodeURIComponent(consultant.name)}`}
                 style={{ textDecoration: "none", color: "black" }}
               >
-                <Box mb={10} mt={10} sx={cardprofile}>
+                <Box mb={5} mt={3} sx={cardprofile}>
                   <img
                     src="public/pictures/girl.jpg"
                     alt="girl"
@@ -60,7 +60,7 @@ const cardprofile = {
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  padding: "10px",
+  // padding: "10px",
 };
 
 const infobox = {
