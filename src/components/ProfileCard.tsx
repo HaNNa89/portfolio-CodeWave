@@ -52,8 +52,14 @@ const cardprofile = {
 };
 
 const cardtitle = {
-  fontFamily: "Lexend giga",
-  fontSize: 12,
+  fontFamily: "monsterrat",
+  fontSize: 18,
+  alignSelf: "flex-start",
+  marginLeft: "1rem",
+
+  "@media (max-width: 600px)": {
+    alignSelf: "center",
+  },
 };
 
 const cardtext = {
