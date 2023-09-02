@@ -1,8 +1,8 @@
 import { AppBar, Box, MenuItem, Toolbar } from "@mui/material";
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
-import HamburgerMenu from "./HamburgerMenu";
+import { Link, NavLink } from "react-router-dom";
 import CodeWave from "./assets/codewave.png";
+import HamburgerMenu from "./HamburgerMenu";
 
 function Header() {
   const menuItem = {
@@ -58,12 +58,13 @@ function Header() {
         }}
       >
         <Toolbar style={{ justifyContent: "space-between" }}>
-          <img
-            src={CodeWave}
-            style={{ width: "5.3rem", height: "auto", padding: "1rem" }}
-            alt="logotyp"
-          />
-
+          <Link to="/">
+            <img
+              src={CodeWave}
+              style={{ width: "5.3rem", height: "auto", padding: "1rem" }}
+              alt="logotyp"
+            />
+          </Link>
           <Box sx={menuList}>
             <MenuItem
               sx={menuItem}
