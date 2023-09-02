@@ -20,6 +20,16 @@ function Header() {
   };
 
   const [headerBackground, setHeaderBackground] = useState("transparent");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleLogout = () => {
+    const storedUsername = localStorage.getItem("username");
+    if (storedUsername) {
+      console.log(`User ${storedUsername} has signed out.`);
+      localStorage.removeItem("username");
+      setIsLoggedIn(false);
+    }
+  };
 
   const handleScroll = () => {
     if (window.scrollY > 0) {
@@ -36,15 +46,10 @@ function Header() {
     };
   }, []);
 
-  // const scrollToSection = (sectionId: string) => {
-  //   const section = document.getElementById(sectionId);
-  //   if (section) {
-  //     window.scrollTo({
-  //       top: section.offsetTop,
-  //       behavior: "smooth",
-  //     });
-  //   }
-  // };
+  useEffect(() => {
+    const storedUsername = localStorage.getItem("username");
+    setIsLoggedIn(!!storedUsername);
+  }, []);
 
   return (
     <>
@@ -66,28 +71,29 @@ function Header() {
             />
           </Link>
           <Box sx={menuList}>
-            <MenuItem
-              sx={menuItem}
-              // onClick={() => scrollToSection("our-team")}
-            >
+            <MenuItem sx={menuItem}>
               Our Team
             </MenuItem>
-            <MenuItem
-              sx={menuItem}
-              // onClick={() => scrollToSection("find-us")}
-            >
+            <MenuItem sx={menuItem}>
               Find Us
             </MenuItem>
             <MenuItem sx={menuItem}>
-              <NavLink
-                to="/login"
-                style={{ textDecoration: "none", color: "inherit" }}
-              >
-                Login
-              </NavLink>
+              {isLoggedIn ? (
+                <button onClick={handleLogout} style={{background: "none", color: "black",
+                fontSize: "1rem",
+                fontFamily: "lexend giga", border: "none"}} >
+                  Logout
+                </button>
+              ) : (
+                <NavLink
+                  to="/login"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  Login
+                </NavLink>
+              )}
             </MenuItem>
           </Box>
-
           <HamburgerMenu />
         </Toolbar>
       </AppBar>
