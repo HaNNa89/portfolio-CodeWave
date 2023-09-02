@@ -1,4 +1,5 @@
 import { Box, Typography } from "@mui/material";
+import Map from "./components/Map";
 
 function Footer() {
   return (
@@ -22,7 +23,9 @@ function Footer() {
             <br /> Linkedin: @Codewave
           </Typography>
         </Box>
-        <Box sx={box2}> </Box>
+        <Box sx={mapBox}>
+          <Map />
+        </Box>
       </Box>
     </Box>
   );
@@ -44,7 +47,7 @@ const footerbox = {
   display: "flex",
   justifyContent: "space-around",
   alignItems: "center",
-  height: "25rem",
+  height: "26rem",
   "@media (max-width: 1024px)": {
     flexDirection: "column-reverse",
     height: "40rem",
@@ -66,6 +69,7 @@ const bigtitle = {
     marginBottom: "1.5rem",
   },
 };
+
 const title = {
   color: "white",
   fontWeight: "bold",
@@ -78,6 +82,7 @@ const text = {
   fontSize: "11pt",
   paddingBottom: "1rem",
 };
+
 const box1 = {
   width: "40%",
   "@media (max-width: 1024px)": {
@@ -85,17 +90,16 @@ const box1 = {
   },
 };
 
-const box2 = {
+const mapBox = {
   width: "45%",
-  backgroundImage: "url('public/images/karta.png')",
-  height: "20rem",
+  height: "auto",
   marginBottom: "1rem",
   "@media (max-width: 1024px)": {
     width: "80%",
-    height: "30rem",
+    height: "auto",
   },
   "@media (max-width: 600px)": {
-    height: "20rem",
+    height: "auto",
   },
 };
 
