@@ -1,24 +1,18 @@
-import { Box } from "@mui/system";
+import { Outlet } from "react-router-dom";
 import "./App.css";
 import Footer from "./Footer";
 import Header from "./Header";
-import Hero from "./Hero";
 
 function App() {
   return (
     <>
-      <Box style={backgroundColor}>
-        <Header />
-        <Hero />
-      </Box>
-
+      <Header />
+      <main>
+        <Outlet />
+      </main>
       <Footer />
     </>
   );
 }
-
-const backgroundColor = {
-  backgroundColor: "#83BDC0",
-};
 
 export default App;
