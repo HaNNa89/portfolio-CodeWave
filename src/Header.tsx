@@ -94,7 +94,7 @@ function Header() {
               )}
             </MenuItem>
           </Box>
-          <HamburgerMenu />
+          <HamburgerMenu isLoggedIn={isLoggedIn} handleLogout={handleLogout} />
         </Toolbar>
       </AppBar>
     </>
