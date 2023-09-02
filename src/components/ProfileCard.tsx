@@ -6,8 +6,8 @@ function ProfileCard() {
 			<Typography sx={toptitle} ml={8} mt={10} mb={10} variant="h4">
 				OUR TEAM
 			</Typography>
-			<Box sx={profilecontainer} mb={6}>
-				<Grid sx={gridcontainer} container spacing={2}>
+			<Box sx={profilecontainer}>
+				<Grid container spacing={4}>
 					<Grid item xs={12} sm={6} md={3}>
 						<Box sx={cardprofile}>
 							<img
@@ -15,7 +15,7 @@ function ProfileCard() {
 								alt="girl"
 								style={{
 									borderRadius: "20px",
-									maxWidth: "16rem",
+									maxWidth: "14rem",
 									height: "auto",
 								}}
 							/>
@@ -34,7 +34,7 @@ function ProfileCard() {
 								alt="girl"
 								style={{
 									borderRadius: "20px",
-									maxWidth: "16rem",
+									maxWidth: "14rem",
 									height: "auto",
 								}}
 							/>
@@ -53,7 +53,7 @@ function ProfileCard() {
 								alt="girl"
 								style={{
 									borderRadius: "20px",
-									maxWidth: "16rem",
+									maxWidth: "14rem",
 									height: "auto",
 								}}
 							/>
@@ -72,7 +72,7 @@ function ProfileCard() {
 								alt="girl"
 								style={{
 									borderRadius: "20px",
-									maxWidth: "16rem",
+									maxWidth: "14rem",
 									height: "auto",
 								}}
 							/>
@@ -95,8 +95,6 @@ const profilecontainer = {
 	flexDirection: "row",
 	justifyContent: "center",
 };
-
-const gridcontainer = {};
 
 const cardprofile = {
 	display: "flex",
