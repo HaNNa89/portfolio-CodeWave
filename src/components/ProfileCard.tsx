@@ -5,29 +5,41 @@ import { team } from "../../data/index"; // Import team data
 function ProfileCard() {
   return (
     <>
-      <Typography ml={8} variant="h4">
+      <Typography
+        ml={8}
+        variant="h4"
+        sx={{ fontFamily: "Lexend giga", marginTop: "1.5rem" }}
+      >
         OUR TEAM
       </Typography>
       <Box sx={profilecontainer}>
         <Grid container spacing={1}>
           {team.map((consultant) => (
-            <Grid item xs={12} sm={6} md={3} key={consultant.name}>
-              <Link to={`/team/${encodeURIComponent(consultant.name)}`}>
+            <Grid item xs={12} sm={6} md={6} lg={3} key={consultant.name}>
+              <Link
+                to={`/team/${encodeURIComponent(consultant.name)}`}
+                style={{ textDecoration: "none", color: "black" }}
+              >
                 <Box mb={10} mt={10} sx={cardprofile}>
                   <img
                     src="public/pictures/girl.jpg"
                     alt="girl"
                     style={{
                       borderRadius: "20px",
-                      maxWidth: "12rem",
+                      maxWidth: "14rem",
                       height: "auto",
                     }}
                   />
 
-                  <Typography mt={1} sx={cardtitle}>
-                    {consultant.name}
-                  </Typography>
-                  <Typography sx={cardtext}>Frontend developer</Typography>
+                  <Box sx={infobox}>
+                    <Typography mt={1} sx={cardtitle}>
+                      {consultant.name}
+                    </Typography>
+                    <Typography sx={cardtext}>Frontend developer</Typography>
+                    <Typography sx={description}>
+                      {consultant.littledescription}
+                    </Typography>
+                  </Box>
                 </Box>
               </Link>
             </Grid>
@@ -51,20 +63,32 @@ const cardprofile = {
   padding: "10px",
 };
 
-const cardtitle = {
-  fontFamily: "monsterrat",
-  fontSize: 18,
-  alignSelf: "flex-start",
-  marginLeft: "1rem",
+const infobox = {
+  width: "14rem",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "flex-start",
+};
 
-  "@media (max-width: 600px)": {
-    alignSelf: "center",
-  },
+const cardtitle = {
+  fontFamily: "lexend giga",
+  fontSize: 14,
+
+  // "@media (max-width: 600px)": {
+  //   alignSelf: "center",
+  // },
 };
 
 const cardtext = {
   fontFamily: "Lexend giga",
+  fontSize: 12,
+  fontWeight: "bold",
+};
+
+const description = {
+  fontFamily: "Lexend giga",
   fontSize: 10,
+  marginTop: "0.5rem",
 };
 
 export default ProfileCard;
