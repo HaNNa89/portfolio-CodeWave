@@ -3,10 +3,17 @@ import { IconButton, Menu, MenuItem } from "@mui/material";
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-function HamburgerMenu() {
-  const [hamburgerMenu, setHamburgerMenu] = React.useState(null);
+interface HamburgerMenuProps {
+  isLoggedIn: boolean;
+  handleLogout: () => void;
+}
 
-  const handleMenuOpen = (event: any) => {
+function HamburgerMenu({ isLoggedIn, handleLogout }: HamburgerMenuProps) {
+  const [hamburgerMenu, setHamburgerMenu] = React.useState<null | HTMLElement>(
+    null
+  );
+
+  const handleMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setHamburgerMenu(event.currentTarget);
   };
 
@@ -22,17 +29,6 @@ function HamburgerMenu() {
     fontSize: "2.5rem",
     color: "black",
   };
-
-  // const scrollToSection = (sectionId: string) => {
-  //   const section = document.getElementById(sectionId);
-  //   if (section) {
-  //     window.scrollTo({
-  //       top: section.offsetTop,
-  //       behavior: "smooth",
-  //     });
-  //   }
-  //   handleMenuClose();
-  // };
 
   return (
     <>
@@ -50,24 +46,20 @@ function HamburgerMenu() {
         open={Boolean(hamburgerMenu)}
         onClose={handleMenuClose}
       >
-        <MenuItem
-          sx={menuItems}
-          // onClick={() => scrollToSection("our-team")}
-        >
-          Our Team
-        </MenuItem>
-        <MenuItem
-          sx={menuItems}
-          // onClick={() => scrollToSection("find-us")}
-        >
-          Find Us
-        </MenuItem>
-        <NavLink
-          style={{ textDecoration: "none", color: "inherit" }}
-          to="/login"
-        >
-          <MenuItem sx={menuItems}>Login</MenuItem>
-        </NavLink>
+        <MenuItem sx={menuItems}>Our Team</MenuItem>
+        <MenuItem sx={menuItems}>Find Us</MenuItem>
+        {isLoggedIn ? (
+          <MenuItem sx={menuItems} onClick={handleLogout}>
+            Logout
+          </MenuItem>
+        ) : (
+          <NavLink
+            style={{ textDecoration: "none", color: "inherit" }}
+            to="/login"
+          >
+            <MenuItem sx={menuItems}>Login</MenuItem>
+          </NavLink>
+        )}
       </Menu>
     </>
   );
