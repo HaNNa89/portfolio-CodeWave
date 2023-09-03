@@ -1,6 +1,13 @@
-import { TextField } from "@mui/material";
+import {
+	Button,
+	Dialog,
+	DialogActions,
+	DialogContent,
+	DialogTitle,
+	TextField,
+} from "@mui/material";
 import { useFormik } from "formik";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router";
 import * as yup from "yup";
 import CodeWave from "../../assets/codewave.png";
@@ -20,16 +27,14 @@ const RegistrationSchema = yup.object({
 });
 
 function Register() {
-	const [username, setUsername] = useState("");
-	const [password, setPassword] = useState("");
-	const [confirmPassword, setConfirmPassword] = useState("");
 	const navigate = useNavigate();
+	const [isPopupOpen, setPopupOpen] = useState(false);
 
 	const formik = useFormik({
 		initialValues: {
 			username: "",
 			password: "",
-			confirmPassword: "",
+			confirmpassword: "",
 		},
 		validationSchema: RegistrationSchema,
 		onSubmit: (values) => {
@@ -40,15 +45,17 @@ function Register() {
 	});
 
 	const handleRegisterClick = () => {
-		localStorage.setItem("username", username);
+		if (!formik.isValid) {
+			setPopupOpen(true);
+		} else {
+			setPopupOpen(false);
+			formik.handleSubmit();
+		}
 	};
 
-	useEffect(() => {
-		const storedUsername = localStorage.getItem("username");
-		if (storedUsername) {
-			setUsername(storedUsername);
-		}
-	}, []);
+	const handleClosePopup = () => {
+		setPopupOpen(false);
+	};
 
 	return (
 		<div className="login-container">
@@ -94,33 +101,47 @@ function Register() {
 					</div>
 					<div
 						className={`input-container ${
-							formik.touched.confirmPassword ? "error" : ""
+							formik.touched.confirmpassword ? "error" : ""
 						}`}
 					>
 						<TextField
-							type="text"
+							type="password"
 							label="Confirm password"
 							name="confirmpassword"
-							value={formik.values.confirmPassword}
+							value={formik.values.confirmpassword}
 							onChange={formik.handleChange}
 							onBlur={formik.handleBlur}
 							error={
-								formik.touched.confirmPassword &&
-								Boolean(formik.errors.confirmPassword)
+								formik.touched.confirmpassword &&
+								Boolean(formik.errors.confirmpassword)
 							}
 							helperText={
-								formik.touched.confirmPassword && formik.errors.confirmPassword
+								formik.touched.confirmpassword && formik.errors.confirmpassword
 							}
 							required
 							fullWidth
 						/>
 					</div>
+					<button
+						className="login-button"
+						type="submit"
+						onClick={handleRegisterClick}
+					>
+						Register Now
+					</button>
 				</form>
-
-				<button className="login-button" onClick={handleRegisterClick}>
-					Register Now
-				</button>
 			</div>
+			<Dialog open={isPopupOpen} onClose={handleClosePopup}>
+				<DialogTitle>Error Message:</DialogTitle>
+				<DialogContent>
+					Please fill in the fields correctly before you can register.
+				</DialogContent>
+				<DialogActions>
+					<Button onClick={handleClosePopup} color="primary">
+						OK
+					</Button>
+				</DialogActions>
+			</Dialog>
 		</div>
 	);
 }
