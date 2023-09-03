@@ -1,11 +1,11 @@
+import Footer from "../Footer";
 import DetailCard from "./DetailCard";
 
 function InformationPage() {
   return (
     <>
-      {/* <Header /> */}
       <DetailCard />
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }
