@@ -2,11 +2,30 @@ import { Menu as MenuIcon } from "@mui/icons-material";
 import { IconButton, Menu, MenuItem } from "@mui/material";
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { scroller } from "react-scroll";
 
 interface HamburgerMenuProps {
   isLoggedIn: boolean;
   handleLogout: () => void;
 }
+
+const scrollToTeam = () => {
+  scroller.scrollTo("team", {
+    duration: 800, // Scroll duration in milliseconds
+    delay: 0, // Delay before scrolling starts (milliseconds)
+    smooth: "easeInOutQuart", // Scrolling animation easing function
+    offset: -100, // Offset to adjust the scroll position (negative value scrolls up)
+  });
+};
+
+const scrollFindUs = () => {
+  scroller.scrollTo("findus", {
+    duration: 800, // Scroll duration in milliseconds
+    delay: 0, // Delay before scrolling starts (milliseconds)
+    smooth: "easeInOutQuart", // Scrolling animation easing function
+    offset: -100, // Offset to adjust the scroll position (negative value scrolls up)
+  });
+};
 
 function HamburgerMenu({ isLoggedIn, handleLogout }: HamburgerMenuProps) {
   const [hamburgerMenu, setHamburgerMenu] = React.useState<null | HTMLElement>(
@@ -46,8 +65,12 @@ function HamburgerMenu({ isLoggedIn, handleLogout }: HamburgerMenuProps) {
         open={Boolean(hamburgerMenu)}
         onClose={handleMenuClose}
       >
-        <MenuItem sx={menuItems}>Our Team</MenuItem>
-        <MenuItem sx={menuItems}>Find Us</MenuItem>
+        <MenuItem sx={menuItems} onClick={scrollToTeam}>
+          Our Team
+        </MenuItem>
+        <MenuItem sx={menuItems} onClick={scrollFindUs}>
+          Find Us
+        </MenuItem>
         {isLoggedIn ? (
           <MenuItem sx={menuItems} onClick={handleLogout}>
             Logout

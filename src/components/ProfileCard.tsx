@@ -5,6 +5,7 @@ import { team } from "../../data/index"; // Import team data
 function ProfileCard() {
   return (
     <>
+      <div id="team"></div>
       <Typography
         ml={8}
         variant="h4"
