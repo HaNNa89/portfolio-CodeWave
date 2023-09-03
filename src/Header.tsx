@@ -1,6 +1,7 @@
 import { AppBar, Box, MenuItem, Toolbar } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { scroller } from "react-scroll";
 import CodeWave from "./assets/codewave.png";
 import HamburgerMenu from "./HamburgerMenu";
 
@@ -17,6 +18,24 @@ function Header() {
     alignItems: "center",
     gap: "1.5rem",
     padding: "0 4rem",
+  };
+
+  const scrollToTeam = () => {
+    scroller.scrollTo("team", {
+      duration: 800, // Scroll duration in milliseconds
+      delay: 0, // Delay before scrolling starts (milliseconds)
+      smooth: "easeInOutQuart", // Scrolling animation easing function
+      offset: -100, // Offset to adjust the scroll position (negative value scrolls up)
+    });
+  };
+
+  const scrollFindUs = () => {
+    scroller.scrollTo("findus", {
+      duration: 800, // Scroll duration in milliseconds
+      delay: 0, // Delay before scrolling starts (milliseconds)
+      smooth: "easeInOutQuart", // Scrolling animation easing function
+      offset: -100, // Offset to adjust the scroll position (negative value scrolls up)
+    });
   };
 
   const [headerBackground, setHeaderBackground] = useState("transparent");
@@ -71,17 +90,24 @@ function Header() {
             />
           </Link>
           <Box sx={menuList}>
-            <MenuItem sx={menuItem}>
+            <MenuItem sx={menuItem} onClick={scrollToTeam}>
               Our Team
             </MenuItem>
-            <MenuItem sx={menuItem}>
+            <MenuItem sx={menuItem} onClick={scrollFindUs}>
               Find Us
             </MenuItem>
             <MenuItem sx={menuItem}>
               {isLoggedIn ? (
-                <button onClick={handleLogout} style={{background: "none", color: "black",
-                fontSize: "1rem",
-                fontFamily: "lexend giga", border: "none"}} >
+                <button
+                  onClick={handleLogout}
+                  style={{
+                    background: "none",
+                    color: "black",
+                    fontSize: "1rem",
+                    fontFamily: "lexend giga",
+                    border: "none",
+                  }}
+                >
                   Logout
                 </button>
               ) : (

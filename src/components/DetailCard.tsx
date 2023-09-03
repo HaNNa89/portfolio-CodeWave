@@ -2,7 +2,8 @@ import { Box, Grid, Typography } from "@mui/material";
 import { AiFillHtml5 } from "react-icons/ai";
 import { BiLogoJavascript, BiLogoTypescript } from "react-icons/bi";
 import { FaCss3Alt, FaFigma, FaReact } from "react-icons/fa";
-import { useParams } from "react-router-dom";
+import { IoIosArrowRoundBack } from "react-icons/io";
+import { Link, useParams } from "react-router-dom";
 import { team } from "../../data/index";
 
 function DetailCard() {
@@ -23,6 +24,29 @@ function DetailCard() {
 
   return (
     <div>
+      <Box
+        sx={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "space-evenly",
+          paddingTop: "2rem",
+          fontFamily: "Lexend Giga",
+          textDecoration: "none",
+          alignItems: "center",
+        }}
+      >
+        <Link
+          to="/"
+          style={{
+            textDecoration: "none",
+            color: "inherit",
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
+          <IoIosArrowRoundBack size={30} /> Back to homepage
+        </Link>
+      </Box>
       <Grid container spacing={5} key={consultant.name}>
         <Grid
           item
@@ -76,7 +100,7 @@ function DetailCard() {
           </Typography>
           <Typography
             style={{
-              width: "27rem",
+              maxWidth: "27rem",
               fontFamily: "montserrat",
               marginBottom: "1.5rem",
             }}
@@ -91,7 +115,7 @@ function DetailCard() {
               marginBottom: "0.5rem",
             }}
           >
-            KOMPETENSER:
+            KNOWLEDGE:
           </Typography>
           <Box style={{ display: "flex" }}>
             <AiFillHtml5 size={40} /> <FaCss3Alt size={40} />

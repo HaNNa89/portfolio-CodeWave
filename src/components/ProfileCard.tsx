@@ -5,6 +5,7 @@ import { team } from "../../data/index"; // Import team data
 function ProfileCard() {
   return (
     <>
+      <div id="team"></div>
       <Typography
         ml={8}
         variant="h4"
@@ -71,8 +72,8 @@ const infobox = {
 };
 
 const cardtitle = {
-  fontFamily: "lexend giga",
-  fontSize: 14,
+  fontFamily: "Montserrat",
+  fontSize: 18,
 
   // "@media (max-width: 600px)": {
   //   alignSelf: "center",
@@ -80,14 +81,14 @@ const cardtitle = {
 };
 
 const cardtext = {
-  fontFamily: "Lexend giga",
-  fontSize: 12,
+  fontFamily: "Montserrat",
+  fontSize: 14,
   fontWeight: "bold",
 };
 
 const description = {
-  fontFamily: "Lexend giga",
-  fontSize: 10,
+  fontFamily: "Montserrat",
+  fontSize: 14,
   marginTop: "0.5rem",
 };
 

@@ -4,6 +4,7 @@ import Map from "./components/Map";
 function Footer() {
   return (
     <Box sx={footer}>
+      <div id="findus"></div>
       <Box sx={titlebox}>
         <Typography variant="h4" sx={bigtitle}>
           FIND US
