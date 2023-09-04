@@ -20,9 +20,10 @@ const RegistrationSchema = yup.object({
 		.required("Please enter a password")
 		.matches(
 			/^[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]+$/,
-			"your password contains invalid characters"
+			`Invalid input. Allowed characters are letters (both uppercase and lowercase), 
+      numbers, and the following special characters: ! @ # $ % ^ & * ) ( + = . _ - . Please try again.`
 		)
-		.min(10, "Your password must be at least 10 characters long"),
+		.min(10, "Your password must be at least 8 characters long"),
 	confirmpassword: yup
 		.string()
 		.oneOf([yup.ref("password"), ""], "Your passwords must match each other")
