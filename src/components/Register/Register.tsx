@@ -14,16 +14,19 @@ import CodeWave from "../../assets/codewave.png";
 import "../Login/Login.css";
 
 const RegistrationSchema = yup.object({
-	username: yup.string().required("Username must be used"),
+	username: yup.string().required("Please enter a username"),
 	password: yup
 		.string()
-		.required("password must be used")
-		.matches(/^[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]+$/, "pasword not correct")
-		.min(10, "password must have at least 10 characters"),
+		.required("Please enter a password")
+		.matches(
+			/^[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]+$/,
+			"your password contains invalid characters"
+		)
+		.min(10, "Your password must be at least 10 characters long"),
 	confirmpassword: yup
 		.string()
-		.oneOf([yup.ref("password"), ""], "password must be the same")
-		.required("confirm password is required"),
+		.oneOf([yup.ref("password"), ""], "Your passwords must match each other")
+		.required("Please confirm your password"),
 });
 
 function Register() {
@@ -39,7 +42,7 @@ function Register() {
 		validationSchema: RegistrationSchema,
 		onSubmit: (values) => {
 			localStorage.setItem("username", values.username);
-			console.log(`User ${values.username} you are registered!`);
+			console.log(`User ${values.username} has been registered!`);
 			navigate("/");
 		},
 	});
@@ -134,7 +137,8 @@ function Register() {
 			<Dialog open={isPopupOpen} onClose={handleClosePopup}>
 				<DialogTitle>Error Message:</DialogTitle>
 				<DialogContent>
-					Please fill in the fields correctly before you can register.
+					Registration requires correct information in all fields. Please check
+					your inputs.
 				</DialogContent>
 				<DialogActions>
 					<Button onClick={handleClosePopup} color="primary">
