@@ -50,8 +50,9 @@ export default function ContactForm() {
 }
 
 const fromContainer = {
-  width: "50%",
+  width: "60%",
   display: "grid",
+  height: "36rem",
 };
 
 const ContactTitle = {
@@ -61,12 +62,14 @@ const ContactTitle = {
   width: "auto",
   borderRadius: "5rem",
   padding: "1rem",
+  display: "flex",
+  alignItems: "center",
 };
 
 const inputLabel = {
   fontFamily: "Montserrat",
   marginLeft: "0.5rem",
-  marginTop: "1rem",
+  // marginTop: "1rem",
 };
 
 const buttonStyle = {
@@ -75,7 +78,7 @@ const buttonStyle = {
   width: "7rem",
   textTransform: "none",
   color: "#FBF9F3",
-  marginTop: "1rem",
+  // marginTop: "1rem",
   boxShadow: "none",
   fontFamily: "Lexend giga",
   "&:hover": {

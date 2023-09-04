@@ -1,6 +1,6 @@
-import { Menu as MenuIcon } from "@mui/icons-material";
 import { IconButton, Menu, MenuItem } from "@mui/material";
 import React from "react";
+import { LuWaves } from "react-icons/lu";
 import { NavLink } from "react-router-dom";
 import { scroller } from "react-scroll";
 
@@ -57,7 +57,8 @@ function HamburgerMenu({ isLoggedIn, handleLogout }: HamburgerMenuProps) {
         onClick={handleMenuOpen}
         sx={{ display: { xs: "block", sm: "none" } }}
       >
-        <MenuIcon sx={menuIcon} />
+        <LuWaves style={menuIcon} />
+        {/* <MenuIcon sx={menuIcon} /> */}
       </IconButton>
 
       <Menu
