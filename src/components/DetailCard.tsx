@@ -5,6 +5,7 @@ import { FaCss3Alt, FaFigma, FaReact } from "react-icons/fa";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { Link, useParams } from "react-router-dom";
 import { team } from "../../data/index";
+import ContactForm from "../ContactForm";
 
 function DetailCard() {
   interface Consultant {
@@ -47,44 +48,58 @@ function DetailCard() {
           <IoIosArrowRoundBack size={30} /> Back to homepage
         </Link>
       </Box>
-      <Grid container spacing={5} key={consultant.name}>
+      <Grid
+        container
+        spacing={5}
+        key={consultant.name}
+        style={{ marginBottom: "2rem" }}
+      >
         <Grid
           item
           lg={6}
-          sm={6}
+          md={12}
+          sm={12}
           xs={12}
           style={{
             marginTop: "5rem",
             display: "flex",
-            justifyContent: "center",
             marginBottom: "2rem",
           }}
           sx={{
             display: "flex",
-            justifyContent: "center",
-            alignItems: { xs: "center", md: "flex-end", lg: "flex-end" },
+            justifyContent: "flex-start",
+            alignItems: {
+              xs: "center",
+              sm: "center",
+              md: "center",
+              lg: "flex-end",
+            },
             flexDirection: "column",
           }}
         >
-          <img
-            src={consultant.imgurl}
-            alt="img"
-            style={{ maxHeight: "40rem" }}
-          />
+          <img src={consultant.imgurl} alt="img" style={image} />
         </Grid>
         <Grid
           item
           lg={6}
-          sm={6}
+          md={12}
+          sm={12}
           xs={12}
-          style={{
-            marginTop: "5rem",
-            marginBottom: "2rem",
-          }}
           sx={{
             display: "flex",
             justifyContent: "center",
-            alignItems: { xs: "center", md: "flex-start", lg: "flex-start" },
+            alignItems: {
+              xs: "center",
+              sm: "center",
+              md: "center",
+              lg: "flex-start",
+            },
+            marginTop: {
+              lg: "5rem",
+              md: "0rem",
+              sm: "0rem",
+            },
+            width: "100%",
             flexDirection: "column",
           }}
         >
@@ -99,8 +114,8 @@ function DetailCard() {
             {consultant.name}
           </Typography>
           <Typography
-            style={{
-              maxWidth: "27rem",
+            sx={{
+              maxWidth: { xs: "19rem", sm: "28rem", md: "28rem" },
               fontFamily: "montserrat",
               marginBottom: "1.5rem",
             }}
@@ -124,10 +139,33 @@ function DetailCard() {
             <FaReact size={40} />
             <FaFigma size={40} />
           </Box>
+          <Box
+            sx={{
+              width: "100%",
+              height: "auto",
+              display: "flex",
+              justifyContent: {
+                lg: "flex-start",
+                md: "center",
+                sm: "center",
+                xs: "center",
+              },
+            }}
+          >
+            <ContactForm />
+          </Box>
         </Grid>
       </Grid>
     </div>
   );
 }
+
+const image = {
+  maxWidth: "22rem",
+  borderRadius: "20px",
+  "@media (maxWidth: 960px)": {
+    maxWidth: "20rem",
+  },
+};
 
 export default DetailCard;

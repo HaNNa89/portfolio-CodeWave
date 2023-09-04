@@ -14,7 +14,7 @@ function ProfileCard() {
         OUR TEAM
       </Typography>
       <Box sx={profilecontainer}>
-        <Grid container spacing={1}>
+        <Grid container spacing={0}>
           {team.map((consultant) => (
             <Grid item xs={12} sm={6} md={6} lg={3} key={consultant.name}>
               <Link
