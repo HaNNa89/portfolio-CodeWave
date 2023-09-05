@@ -117,6 +117,7 @@ function DetailCard() {
             sx={{
               maxWidth: { xs: "19rem", sm: "28rem", md: "28rem" },
               fontFamily: "montserrat",
+              fontSize: "1.2rem",
               marginBottom: "1.5rem",
             }}
           >
