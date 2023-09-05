@@ -1,11 +1,31 @@
 import { Box, Button, InputLabel, TextField } from "@mui/material";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
 export default function ContactForm() {
+
+  const validationSchema = Yup.object().shape({
+    name: Yup.string().required("Please enter your name."),
+    email: Yup.string().email("Invalid email format").required("Please enter your email."),
+    message: Yup.string().required("Please enter your message."),
+  });
+
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      message: "",
+    },
+    validationSchema: validationSchema,
+    onSubmit: (values) => {
+        console.log(values);
+    },
+  });
+  
   return (
     <>
       <Box style={fromContainer}>
         <h5 style={ContactTitle}>Contact me</h5>
-        {/* NAME INPUT */}
         <InputLabel sx={inputLabel}>Name:</InputLabel>
         <TextField
           InputProps={{
@@ -16,7 +36,6 @@ export default function ContactForm() {
           id="outlined-basic"
           variant="outlined"
         />
-        {/* EMAIL INPUT */}
         <InputLabel sx={inputLabel}>Email*:</InputLabel>
         <TextField
           InputProps={{
@@ -27,7 +46,6 @@ export default function ContactForm() {
           id="outlined-basic"
           variant="outlined"
         />
-        {/* MESSAGE INPUT */}
         <InputLabel sx={inputLabel}>Your message:*</InputLabel>
         <TextField
           InputProps={{
@@ -40,7 +58,6 @@ export default function ContactForm() {
           id="outlined-basic"
           variant="outlined"
         />
-        {/* SEND BUTTON */}
         <Button sx={buttonStyle} disableRipple variant="text">
           Send
         </Button>
