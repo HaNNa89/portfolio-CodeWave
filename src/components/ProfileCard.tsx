@@ -82,22 +82,19 @@ const infobox = {
 const cardtitle = {
   fontFamily: "Montserrat",
   fontSize: 18,
-
-  // "@media (max-width: 600px)": {
-  //   alignSelf: "center",
-  // },
+  fontWeight: "bold",
 };
 
 const cardtext = {
   fontFamily: "Montserrat",
-  fontSize: 14,
-  fontWeight: "bold",
+  fontSize: 15,
 };
 
 const description = {
   fontFamily: "Montserrat",
   fontSize: 14,
   marginTop: "0.5rem",
+  color: "grey",
 };
 
 export default ProfileCard;
