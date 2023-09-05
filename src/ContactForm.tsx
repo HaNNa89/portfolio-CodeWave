@@ -1,8 +1,10 @@
-import { Button, InputLabel, TextField } from "@mui/material";
+import { Button, InputLabel, TextField, Dialog, DialogTitle, DialogContent, DialogActions } from "@mui/material";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { useState } from "react";
 
 export default function ContactForm() {
+  const [openDialog, setOpenDialog] = useState(false);
   const validationSchema = Yup.object().shape({
     name: Yup.string().required("Please enter your name."),
     email: Yup.string().email("Invalid email format").required("Please enter your email."),
@@ -17,9 +19,17 @@ export default function ContactForm() {
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
+      if (formik.isValid) {
         console.log(values);
+      } else {
+        setOpenDialog(true);
+      }
     },
   });
+
+  const handleCloseDialog = () => {
+    setOpenDialog(false);
+  };
 
   return (
     <form style={formContainer} onSubmit={formik.handleSubmit}>
@@ -90,10 +100,29 @@ export default function ContactForm() {
             email: true,
             message: true,
           });
+          if (!formik.values.name || !formik.values.email || !formik.values.message) {
+            setOpenDialog(true);
+          } else {
+            formik.handleSubmit();
+          }
         }}
       >
         Send
       </Button>
+
+      <Dialog open={openDialog} onClose={handleCloseDialog}>
+        <DialogTitle>Error</DialogTitle>
+        <DialogContent>
+          Please make sure to fill in the following information:<br />
+          <br />
+          - Your name<br />
+          - A valid email address<br />
+          - Your message
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseDialog}>OK</Button>
+        </DialogActions>
+      </Dialog>
     </form>
   );
 }
@@ -136,3 +165,4 @@ const buttonStyle = {
 const errorStyle = {
   color: "red",
 };
+
