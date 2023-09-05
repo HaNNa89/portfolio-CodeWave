@@ -11,6 +11,12 @@ function Header() {
     color: "black",
     fontSize: "1rem",
     fontFamily: "lexend giga",
+    "&:hover": {
+      fontWeight: "bold",
+      backgroundColor: "transparent",
+      color: "#28594B",
+      borderBottom: "2px solid #28594B",
+    },
   };
 
   const menuList = {

@@ -6,17 +6,18 @@ function ProfileCard() {
   return (
     <>
       <div id="team"></div>
-      <Typography
-        ml={8}
-        variant="h4"
-        sx={{ fontFamily: "Lexend giga", marginTop: "1.5rem" }}
-      >
-        OUR TEAM
-      </Typography>
+
       <Box sx={profilecontainer}>
+        <Typography
+          ml={0}
+          variant="h4"
+          sx={{ fontFamily: "Lexend giga", marginTop: "1.5rem" }}
+        >
+          OUR TEAM
+        </Typography>
         <Grid container spacing={0}>
           {team.map((consultant) => (
-            <Grid item xs={12} sm={6} md={6} lg={3} key={consultant.name}>
+            <Grid item xs={12} sm={12} md={6} lg={3} key={consultant.name}>
               <Link
                 to={`/team/${encodeURIComponent(consultant.name)}`}
                 style={{ textDecoration: "none", color: "black" }}
@@ -53,8 +54,10 @@ function ProfileCard() {
 
 const profilecontainer = {
   display: "flex",
-  flexDirection: "row",
+  flexDirection: "column",
   justifyContent: "center",
+  paddingLeft: "7rem",
+  paddingRight: "7rem",
 };
 
 const cardprofile = {
@@ -62,6 +65,11 @@ const cardprofile = {
   flexDirection: "column",
   alignItems: "center",
   // padding: "10px",
+  filter: "brightness(0.8)", // Apply a transparent green tint
+  "&:hover": {
+    transform: "scale(1.05)", // Scale up the image on hover
+    filter: "brightness(1.0)", // Apply a transparent green tint
+  },
 };
 
 const infobox = {
