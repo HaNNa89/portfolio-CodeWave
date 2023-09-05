@@ -1,55 +1,133 @@
-import { Box, Button, InputLabel, TextField } from "@mui/material";
+import { Button, InputLabel, TextField, Dialog, DialogTitle, DialogContent, DialogActions } from "@mui/material";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import { useState } from "react";
 
 export default function ContactForm() {
+  const [openDialog, setOpenDialog] = useState(false);
+  const validationSchema = Yup.object().shape({
+    name: Yup.string().required("Please enter your name."),
+    email: Yup.string().email("Invalid email format").required("Please enter your email."),
+    message: Yup.string().required("Please enter your message."),
+  });
+
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      message: "",
+    },
+    validationSchema: validationSchema,
+    onSubmit: (values) => {
+      if (formik.isValid) {
+        console.log(values);
+      } else {
+        setOpenDialog(true);
+      }
+    },
+  });
+
+  const handleCloseDialog = () => {
+    setOpenDialog(false);
+  };
+
   return (
-    <>
-      <Box style={fromContainer}>
-        <h5 style={ContactTitle}>Contact me</h5>
-        {/* NAME INPUT */}
-        <InputLabel sx={inputLabel}>Name:</InputLabel>
-        <TextField
-          InputProps={{
-            style: {
-              borderRadius: "5rem",
-            },
-          }}
-          id="outlined-basic"
-          variant="outlined"
-        />
-        {/* EMAIL INPUT */}
-        <InputLabel sx={inputLabel}>Email*:</InputLabel>
-        <TextField
-          InputProps={{
-            style: {
-              borderRadius: "5rem",
-            },
-          }}
-          id="outlined-basic"
-          variant="outlined"
-        />
-        {/* MESSAGE INPUT */}
-        <InputLabel sx={inputLabel}>Your message:*</InputLabel>
-        <TextField
-          InputProps={{
-            style: {
-              borderRadius: "2rem",
-            },
-          }}
-          multiline
-          rows={4}
-          id="outlined-basic"
-          variant="outlined"
-        />
-        {/* SEND BUTTON */}
-        <Button sx={buttonStyle} disableRipple variant="text">
-          Send
-        </Button>
-      </Box>
-    </>
+    <form style={formContainer} onSubmit={formik.handleSubmit}>
+      <h5 style={ContactTitle}>Contact me</h5>
+
+      <InputLabel sx={inputLabel}>Name:</InputLabel>
+      <TextField
+        InputProps={{
+          style: {
+            borderRadius: "5rem",
+          },
+        }}
+        id="name"
+        name="name"
+        variant="outlined"
+        value={formik.values.name}
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+      />
+      {formik.touched.name && formik.errors.name ? (
+        <div style={errorStyle}>{formik.errors.name}</div>
+      ) : null}
+
+      <InputLabel sx={inputLabel}>Email*:</InputLabel>
+      <TextField
+        InputProps={{
+          style: {
+            borderRadius: "5rem",
+          },
+        }}
+        id="email"
+        name="email"
+        variant="outlined"
+        value={formik.values.email}
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+      />
+      {formik.touched.email && formik.errors.email ? (
+        <div style={errorStyle}>{formik.errors.email}</div>
+      ) : null}
+
+      <InputLabel sx={inputLabel}>Your message:*</InputLabel>
+      <TextField
+        InputProps={{
+          style: {
+            borderRadius: "2rem",
+          },
+        }}
+        multiline
+        rows={4}
+        id="message"
+        name="message"
+        variant="outlined"
+        value={formik.values.message}
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+      />
+      {formik.touched.message && formik.errors.message ? (
+        <div style={errorStyle}>{formik.errors.message}</div>
+      ) : null}
+
+      <Button
+        type="submit"
+        sx={buttonStyle}
+        onClick={() => {
+          formik.setTouched({
+            name: true,
+            email: true,
+            message: true,
+          });
+          if (!formik.values.name || !formik.values.email || !formik.values.message) {
+            setOpenDialog(true);
+          } else {
+            formik.handleSubmit();
+          }
+        }}
+      >
+        Send
+      </Button>
+
+      <Dialog open={openDialog} onClose={handleCloseDialog}>
+        <DialogTitle>Error</DialogTitle>
+        <DialogContent>
+          Please make sure to fill in the following information:<br />
+          <br />
+          - Your name<br />
+          - A valid email address<br />
+          - Your message
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseDialog}>OK</Button>
+        </DialogActions>
+      </Dialog>
+    </form>
   );
 }
 
-const fromContainer = {
+const formContainer = {
   width: "60%",
   display: "grid",
   height: "36rem",
@@ -69,7 +147,6 @@ const ContactTitle = {
 const inputLabel = {
   fontFamily: "Montserrat",
   marginLeft: "0.5rem",
-  // marginTop: "1rem",
 };
 
 const buttonStyle = {
@@ -78,10 +155,14 @@ const buttonStyle = {
   width: "7rem",
   textTransform: "none",
   color: "#FBF9F3",
-  // marginTop: "1rem",
   boxShadow: "none",
   fontFamily: "Lexend giga",
   "&:hover": {
-    backgroundColor: "#1b1b1b ",
+    backgroundColor: "#1b1b1b",
   },
 };
+
+const errorStyle = {
+  color: "red",
+};
+
