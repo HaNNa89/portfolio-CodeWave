@@ -11,11 +11,11 @@ const theme = createTheme();
 export default function Hero() {
   return (
     <Box style={backgroundColor}>
-    <ThemeProvider theme={theme}>
-      <img style={heroImage} src="/images/hero.png" alt="hero" />
-      <Container style={heroTextContainer}>
-      <style>
-        {`
+      <ThemeProvider theme={theme}>
+        <img style={heroImage} src="/images/hero.png" alt="hero" />
+        <Container style={heroTextContainer}>
+          <style>
+            {`
           @keyframes fadeInAnimation {
             0% {
               opacity: 0;
@@ -27,13 +27,13 @@ export default function Hero() {
             }
           }
         `}
-      </style>
-        <Typography style={heroText} variant="h3">
-          Your VISION, our EXPERTISE <br /> Turn your ideas into reality with
-          our consultants
-        </Typography>
-      </Container>
-    </ThemeProvider>
+          </style>
+          <Typography style={heroText} variant="h3">
+            Your VISION, our EXPERTISE <br /> Turn your ideas into reality with
+            our consultants
+          </Typography>
+        </Container>
+      </ThemeProvider>
     </Box>
   );
 }
@@ -59,7 +59,7 @@ const heroTextContainer: React.CSSProperties = {
   left: "3%",
   width: "60%",
   opacity: 0,
-  animation: "fadeInAnimation 1.5s ease-in-out 1s forwards"
+  animation: "fadeInAnimation 1.5s ease-in-out 1s forwards",
 };
 
 const heroText = {
