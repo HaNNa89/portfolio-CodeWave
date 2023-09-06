@@ -1,13 +1,23 @@
-import { Button, InputLabel, TextField, Dialog, DialogTitle, DialogContent, DialogActions } from "@mui/material";
+import {
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  InputLabel,
+  TextField,
+} from "@mui/material";
 import { useFormik } from "formik";
-import * as Yup from "yup";
 import { useState } from "react";
+import * as Yup from "yup";
 
 export default function ContactForm() {
   const [openDialog, setOpenDialog] = useState(false);
   const validationSchema = Yup.object().shape({
     name: Yup.string().required("Please enter your name."),
-    email: Yup.string().email("Invalid email format").required("Please enter your email."),
+    email: Yup.string()
+      .email("Invalid email format")
+      .required("Please enter your email."),
     message: Yup.string().required("Please enter your message."),
   });
 
@@ -35,7 +45,7 @@ export default function ContactForm() {
     <form style={formContainer} onSubmit={formik.handleSubmit}>
       <h5 style={ContactTitle}>Contact me</h5>
 
-      <InputLabel sx={inputLabel}>Name:</InputLabel>
+      <InputLabel sx={inputLabel}>Name*:</InputLabel>
       <TextField
         InputProps={{
           style: {
@@ -100,7 +110,11 @@ export default function ContactForm() {
             email: true,
             message: true,
           });
-          if (!formik.values.name || !formik.values.email || !formik.values.message) {
+          if (
+            !formik.values.name ||
+            !formik.values.email ||
+            !formik.values.message
+          ) {
             setOpenDialog(true);
           } else {
             formik.handleSubmit();
@@ -113,11 +127,13 @@ export default function ContactForm() {
       <Dialog open={openDialog} onClose={handleCloseDialog}>
         <DialogTitle>Error</DialogTitle>
         <DialogContent>
-          Please make sure to fill in the following information:<br />
+          Please make sure to fill in the following information:
           <br />
-          - Your name<br />
-          - A valid email address<br />
-          - Your message
+          <br />
+          - Your name
+          <br />
+          - A valid email address
+          <br />- Your message
         </DialogContent>
         <DialogActions>
           <Button onClick={handleCloseDialog}>OK</Button>
@@ -131,15 +147,16 @@ const formContainer = {
   width: "60%",
   display: "grid",
   height: "36rem",
+  border: "1px solid #c4bdbd",
+  borderRadius: "3rem",
+  padding: "2rem",
+  marginTop: "2rem",
 };
 
 const ContactTitle = {
   fontFamily: "Lexend giga",
   fontSize: "1rem",
-  backgroundColor: "#83BDC0",
   width: "auto",
-  borderRadius: "5rem",
-  padding: "1rem",
   display: "flex",
   alignItems: "center",
 };
@@ -165,4 +182,3 @@ const buttonStyle = {
 const errorStyle = {
   color: "red",
 };
-
