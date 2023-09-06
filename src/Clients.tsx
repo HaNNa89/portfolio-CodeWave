@@ -15,28 +15,28 @@ function Clients() {
       <Grid container spacing={2} style={containerStyle}>
         <Grid item lg={3} sm={6} xs={6} style={{ textAlign: "center" }}>
           <img
-            src="public/images/stenasvart.png"
+            src="/images/stenasvart.png"
             alt="Stena line"
             style={imageStyle}
           />
         </Grid>
         <Grid item lg={3} sm={6} xs={6} style={{ textAlign: "center" }}>
           <img
-            src="public/images/santamaria 1.png"
+            src="/images/santamaria 1.png"
             alt="Santa Maria"
             style={imageStyle}
           />
         </Grid>
         <Grid item lg={3} sm={6} xs={6} style={{ textAlign: "center" }}>
           <img
-            src="public/images/ica-logo-black-and-white.png"
+            src="/images/ica-logo-black-and-white.png"
             alt="Description of the image"
             style={imageStyle}
           />
         </Grid>
         <Grid item lg={3} sm={6} xs={6} style={{ textAlign: "center" }}>
           <img
-            src="public/images/clasohlson.png"
+            src="/images/clasohlson.png"
             alt="Description of the image"
             style={imageStyle}
           />
