@@ -62,12 +62,12 @@ const marginBox = {
 };
 
 theme.typography.h3 = {
-  fontSize: "1.2rem", // for mobile
+  fontSize: "1.2rem",
   "@media (min-width:600px)": {
-    fontSize: "1.3rem", // for tablet
+    fontSize: "1.3rem",
   },
   [theme.breakpoints.up("md")]: {
-    fontSize: "1.5rem", // for desktop
+    fontSize: "1.5rem",
   },
 };
 

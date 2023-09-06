@@ -8,8 +8,6 @@ import {
 } from "react-router-dom";
 import App from "./App";
 import InformationPage from "./components/InformationPage";
-import Login from "./components/Login/Login";
-import Register from "./components/Register/Register";
 import Homepage from "./Homepage";
 import "./index.css";
 
@@ -18,8 +16,8 @@ const router = createBrowserRouter(
     <Route path="/" element={<App />}>
       <Route index element={<Homepage />} />
       <Route path="/team/:name" element={<InformationPage />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
+      {/* <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} /> */}
     </Route>
   )
 );

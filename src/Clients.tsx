@@ -50,7 +50,7 @@ function Clients() {
           color: "black",
         }}
       >
-        <Typography sx={{ fontFamily: "montserrat" }}>
+        <Typography sx={TextStyle}>
           Trusted by these leading brands
         </Typography>
       </Box>
@@ -66,8 +66,14 @@ const containerStyle = {
 };
 
 const imageStyle = {
-  maxWidth: "6rem",
+  maxWidth: "8rem",
   height: "auto",
+};
+
+const TextStyle = {
+  fontFamily: "Montserrat, sans-serif",
+  fontSize: "1rem",
+  color: "white",
 };
 
 export default Clients;
