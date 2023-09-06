@@ -1,6 +1,6 @@
 import { AppBar, Box, MenuItem, Toolbar } from "@mui/material";
 import { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { scroller } from "react-scroll";
 import CodeWave from "./assets/codewave.png";
 import HamburgerMenu from "./HamburgerMenu";
@@ -28,33 +28,33 @@ function Header() {
 
   const scrollToTeam = () => {
     scroller.scrollTo("team", {
-      duration: 800, // Scroll duration in milliseconds
-      delay: 0, // Delay before scrolling starts (milliseconds)
-      smooth: "easeInOutQuart", // Scrolling animation easing function
-      offset: -100, // Offset to adjust the scroll position (negative value scrolls up)
+      duration: 800,
+      delay: 0,
+      smooth: "easeInOutQuart",
+      offset: -100,
     });
   };
 
   const scrollFindUs = () => {
     scroller.scrollTo("findus", {
-      duration: 800, // Scroll duration in milliseconds
-      delay: 0, // Delay before scrolling starts (milliseconds)
-      smooth: "easeInOutQuart", // Scrolling animation easing function
-      offset: -100, // Offset to adjust the scroll position (negative value scrolls up)
+      duration: 800,
+      delay: 0,
+      smooth: "easeInOutQuart",
+      offset: -100,
     });
   };
 
   const [headerBackground, setHeaderBackground] = useState("transparent");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const handleLogout = () => {
-    const storedUsername = localStorage.getItem("username");
-    if (storedUsername) {
-      console.log(`User ${storedUsername} has signed out.`);
-      localStorage.removeItem("username");
-      setIsLoggedIn(false);
-    }
-  };
+  // const handleLogout = () => {
+  //   const storedUsername = localStorage.getItem("username");
+  //   if (storedUsername) {
+  //     console.log(`User ${storedUsername} has signed out.`);
+  //     localStorage.removeItem("username");
+  //     setIsLoggedIn(false);
+  //   }
+  // };
 
   const handleScroll = () => {
     if (window.scrollY > 0) {
@@ -71,10 +71,10 @@ function Header() {
     };
   }, []);
 
-  useEffect(() => {
-    const storedUsername = localStorage.getItem("username");
-    setIsLoggedIn(!!storedUsername);
-  }, []);
+  // useEffect(() => {
+  //   const storedUsername = localStorage.getItem("username");
+  //   setIsLoggedIn(!!storedUsername);
+  // }, []);
 
   return (
     <>
@@ -102,7 +102,7 @@ function Header() {
             <MenuItem sx={menuItem} onClick={scrollFindUs}>
               Find Us
             </MenuItem>
-            <MenuItem sx={menuItem}>
+            {/* <MenuItem sx={menuItem}>
               {isLoggedIn ? (
                 <button
                   onClick={handleLogout}
@@ -124,9 +124,12 @@ function Header() {
                   Login
                 </NavLink>
               )}
-            </MenuItem>
+            </MenuItem> */}
           </Box>
-          <HamburgerMenu isLoggedIn={isLoggedIn} handleLogout={handleLogout} />
+          <HamburgerMenu
+          //  isLoggedIn={isLoggedIn}
+          //  handleLogout={handleLogout}
+          />
         </Toolbar>
       </AppBar>
     </>

@@ -1,33 +1,32 @@
 import { IconButton, Menu, MenuItem } from "@mui/material";
 import React from "react";
 import { LuWaves } from "react-icons/lu";
-import { NavLink } from "react-router-dom";
 import { scroller } from "react-scroll";
 
-interface HamburgerMenuProps {
-  isLoggedIn: boolean;
-  handleLogout: () => void;
-}
+// interface HamburgerMenuProps {
+//   isLoggedIn: boolean;
+//   handleLogout: () => void;
+// }
 
 const scrollToTeam = () => {
   scroller.scrollTo("team", {
-    duration: 800, // Scroll duration in milliseconds
-    delay: 0, // Delay before scrolling starts (milliseconds)
-    smooth: "easeInOutQuart", // Scrolling animation easing function
-    offset: -100, // Offset to adjust the scroll position (negative value scrolls up)
+    duration: 800,
+    delay: 0,
+    smooth: "easeInOutQuart",
+    offset: -100,
   });
 };
 
 const scrollFindUs = () => {
   scroller.scrollTo("findus", {
-    duration: 800, // Scroll duration in milliseconds
-    delay: 0, // Delay before scrolling starts (milliseconds)
-    smooth: "easeInOutQuart", // Scrolling animation easing function
-    offset: -100, // Offset to adjust the scroll position (negative value scrolls up)
+    duration: 800,
+    delay: 0,
+    smooth: "easeInOutQuart",
+    offset: -100,
   });
 };
 
-function HamburgerMenu({ isLoggedIn, handleLogout }: HamburgerMenuProps) {
+function HamburgerMenu() {
   const [hamburgerMenu, setHamburgerMenu] = React.useState<null | HTMLElement>(
     null
   );
@@ -58,7 +57,6 @@ function HamburgerMenu({ isLoggedIn, handleLogout }: HamburgerMenuProps) {
         sx={{ display: { xs: "block", sm: "none" } }}
       >
         <LuWaves style={menuIcon} />
-        {/* <MenuIcon sx={menuIcon} /> */}
       </IconButton>
 
       <Menu
@@ -72,7 +70,7 @@ function HamburgerMenu({ isLoggedIn, handleLogout }: HamburgerMenuProps) {
         <MenuItem sx={menuItems} onClick={scrollFindUs}>
           Find Us
         </MenuItem>
-        {isLoggedIn ? (
+        {/* {isLoggedIn ? (
           <MenuItem sx={menuItems} onClick={handleLogout}>
             Logout
           </MenuItem>
@@ -83,7 +81,7 @@ function HamburgerMenu({ isLoggedIn, handleLogout }: HamburgerMenuProps) {
           >
             <MenuItem sx={menuItems}>Login</MenuItem>
           </NavLink>
-        )}
+        )} */}
       </Menu>
     </>
   );
