@@ -123,11 +123,13 @@ function DetailCard() {
           }}
         >
           <Typography
-            style={{
+            sx={{
               fontFamily: "Lexend giga",
-              fontSize: "1.5rem",
+              fontSize: "1.4rem",
               fontWeight: "bold",
               marginBottom: "0.5rem",
+
+              maxWidth: { xs: "19rem", sm: "28rem", md: "28rem" },
             }}
           >
             {consultant.name}
