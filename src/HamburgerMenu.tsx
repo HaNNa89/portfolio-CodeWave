@@ -8,24 +8,6 @@ import { scroller } from "react-scroll";
 //   handleLogout: () => void;
 // }
 
-const scrollToTeam = () => {
-  scroller.scrollTo("team", {
-    duration: 800,
-    delay: 0,
-    smooth: "easeInOutQuart",
-    offset: -100,
-  });
-};
-
-const scrollFindUs = () => {
-  scroller.scrollTo("findus", {
-    duration: 800,
-    delay: 0,
-    smooth: "easeInOutQuart",
-    offset: -100,
-  });
-};
-
 function HamburgerMenu() {
   const [hamburgerMenu, setHamburgerMenu] = React.useState<null | HTMLElement>(
     null
@@ -37,6 +19,26 @@ function HamburgerMenu() {
 
   const handleMenuClose = () => {
     setHamburgerMenu(null);
+  };
+
+  const scrollToTeam = () => {
+    scroller.scrollTo("team", {
+      duration: 800,
+      delay: 0,
+      smooth: "easeInOutQuart",
+      offset: -100,
+    });
+    handleMenuClose(); // Close the menu after clicking a link
+  };
+
+  const scrollFindUs = () => {
+    scroller.scrollTo("findus", {
+      duration: 800,
+      delay: 0,
+      smooth: "easeInOutQuart",
+      offset: -100,
+    });
+    handleMenuClose(); // Close the menu after clicking a link
   };
 
   const menuItems = {
