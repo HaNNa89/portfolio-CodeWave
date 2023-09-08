@@ -49,7 +49,7 @@ function DetailCard() {
       >
         <Link to="/">
           <img
-            src="/src/assets/codewave.png"
+            src="/public/images/codewave.png"
             style={{ width: "5.3rem", height: "auto", padding: "1rem" }}
             alt="logotyp"
           />

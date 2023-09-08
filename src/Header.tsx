@@ -2,7 +2,6 @@ import { AppBar, Box, MenuItem, Toolbar } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { scroller } from "react-scroll";
-import CodeWave from "./assets/codewave.png";
 import HamburgerMenu from "./HamburgerMenu";
 
 function Header() {
@@ -90,7 +89,7 @@ function Header() {
         <Toolbar style={{ justifyContent: "space-between" }}>
           <Link to="/">
             <img
-              src={CodeWave}
+              src="/public/images/codewave.png"
               style={{ width: "5.3rem", height: "auto", padding: "1rem" }}
               alt="logotyp"
             />
