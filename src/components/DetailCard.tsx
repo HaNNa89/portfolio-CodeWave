@@ -5,7 +5,7 @@ import { BiLogoJavascript, BiLogoTypescript } from "react-icons/bi";
 import { FaCss3Alt, FaFigma, FaReact } from "react-icons/fa";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { Link, useParams } from "react-router-dom";
-import { team } from "../../data/index";
+import { team } from "../../public/Data/index";
 import ContactForm from "../ContactForm";
 
 function DetailCard() {

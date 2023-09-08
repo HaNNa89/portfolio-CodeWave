@@ -1,6 +1,6 @@
 import { Box, Grid, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
-import { team } from "../../data/index";
+import { team } from "../../public/Data/index";
 
 function ProfileCard() {
   return (
@@ -65,7 +65,7 @@ const cardprofile = {
   // padding: "10px",
   filter: "brightness(0.8)",
   "&:hover": {
-    transform: "scale(1.05)", 
+    transform: "scale(1.05)",
     filter: "brightness(1.0)",
   },
 };
