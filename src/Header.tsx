@@ -89,7 +89,7 @@ function Header() {
         <Toolbar style={{ justifyContent: "space-between" }}>
           <Link to="/">
             <img
-              src="/public/images/codewave.png"
+              src="/images/codewave.png"
               style={{ width: "5.3rem", height: "auto", padding: "1rem" }}
               alt="logotyp"
             />
